@@ -39,7 +39,7 @@
 	<!-- <div id="app"> -->
 		<header class="d-flex">
 			<!-- ------------------------ -->
-			<!-- MENU -->
+			<!-- LOGIN -->
 			<!-- ------------------------ -->
 			<div class="col-5 iniciarSesion d-flex justify-content-center align-self-center">
 				<div>
@@ -247,7 +247,13 @@
 				</section>
 				<!-- <div class="prueba"></div> -->
 			</div>
+			<!-- ------------------------ -->
+			<!-- VISTA LANDSCAPE -->
+			<!-- ------------------------ -->
 			<div v-show="landscape" class="landscape">
+				<!-- ------------------------ -->
+				<!-- GAME SCHEDULE -->
+				<!-- ------------------------ -->
 				<div id="accordion" role="tablist" class="col-6 partidos_meses">
 					<div class="card">
 				    <div class="card-header text-center apaisado">
@@ -264,7 +270,6 @@
 				        </a>
 				      </h5>
 				    </div>
-
 				    <div v-bind:id="'collapsed' + key" class="tabla_landscape collapse" role="tabpanel" aria-labelledby="headingOne">
 				      <div class="card-body">
 				        <table class="mes">
@@ -289,11 +294,20 @@
 				    </div>
 				  </div>
 				</div>
+				<!-- ------------------------ -->
+				<!-- MAPA DE LOS PARTIDOS -->
+				<!-- ------------------------ -->
 				<div class="partidos_mapa col-6">
 					<iframe src="https://www.google.com/maps/d/embed?mid=1Zm1RoZefy2mbyjvOjQn2q-dE6OtMWqp8&z=13" width="100%" height="100%" class="map_landscape"></iframe>
 				</div>
 			</div>
+			<!-- ------------------------ -->
+			<!-- FORO DE MENSAJES -->
+			<!-- ------------------------ -->
 			<div id="chat">
+				<!-- ------------------------ -->
+				<!-- NUEVO POST -->
+				<!-- ------------------------ -->
 				<div id="post">
 					<form action="#" id="formulario-post" class="d-flex flex-column form-post">
 						<label for="new-post-title">Title: <input type="text" name="titulo" maxlength="50" placeholder="Title..." id="new-post-title"></label>
@@ -301,8 +315,10 @@
 						<button type="submit">POST</button>
 					</form>
 				</div>
+				<!-- ------------------------ -->
+				<!-- POSTEOS -->
+				<!-- ------------------------ -->
 				<section id="posteos" class="d-flex flex-column posteos">
-					<!-- posteos -->
 					<div class="posteo">
 						<div class="posteo-msj">
 							<h3>Titulo</h3>
@@ -313,40 +329,6 @@
 							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-						</div>
-						<div class="nuevo-comentario">
-							<form action="#" id="comentario-post" class="d-flex justify-content-around">
-								<textarea name="comment" rows="2" id="new-comment" placeholder="Write your comment..."></textarea>
-								<button type="submit">COMMENT</button>
-							</form>
-						</div>
-						<div class="posteo-comentario">
-							<h4>Usuario + Fecha y hora</h4>
-							<p>Comentario</p>
-						</div>
-					</div>
-					<div>
-						<div class="posteo-msj">
-							<h3>Titulo</h3>
-							<h4>Usuario + Fecha y hora</h4>
-							<p>Mensaje: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, aperiam.</p>
-						</div>
-						<div class="nuevo-comentario">
-							<form action="#" id="comentario-post" class="d-flex justify-content-around">
-								<textarea name="comment" rows="2" id="new-comment" placeholder="Write your comment..."></textarea>
-								<button type="submit">COMMENT</button>
-							</form>
-						</div>
-						<div class="posteo-comentario">
-							<h4>Usuario + Fecha y hora</h4>
-							<p>Comentario</p>
-						</div>
-					</div>
-					<div>
-						<div class="posteo-msj">
-							<h3>Titulo</h3>
-							<h4>Usuario + Fecha y hora</h4>
-							<p>Mensaje: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam quas, vitae repellat illo magnam ducimus obcaecati non sit quae assumenda possimus veritatis esse officiis voluptas quidem hic dolorum impedit libero, autem quam porro natus laudantium nobis. Tenetur officiis accusamus unde quo ullam ad ducimus nam neque exercitationem, corrupti maiores aperiam, libero dolor? Mollitia voluptas facere ex nulla amet modi, hic quas placeat repellendus culpa dolore eaque voluptate molestias tempore sapiente inventore, aliquam vero eligendi fugit ea deleniti! Ipsam labore recusandae quas hic quam tenetur praesentium earum quidem dignissimos, quo deserunt libero quae officiis nemo. Fugit magni, minima at vel assumenda accusamus modi facere voluptatibus id officiis ut iusto sunt eligendi nihil atque est porro mollitia tenetur accusantium nulla amet incidunt.</p>
 						</div>
 						<div class="nuevo-comentario">
 							<form action="#" id="comentario-post" class="d-flex justify-content-around">

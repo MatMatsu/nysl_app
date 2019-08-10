@@ -14,9 +14,7 @@
 /* ------------------------ */
 header {background-color: #FFCF56;}
 
-header>div {
-	align-self: center;
-}
+header>div {align-self: center;}
 
 /* ------------------------ */
 /* ------------------------ */
@@ -186,13 +184,9 @@ header>div {
 					/* ALL */
 /* ------------------------ */
 
-body {
-	background-color: black;
-}
+body {background-color: black;}
 
-main {
-	display: none;
-}
+main {display: none;}
 
 th,td,.modal-body>p, h5, h6, .close>span {color:black;}
 
@@ -211,21 +205,21 @@ th, td {border: solid 1px black;}
 	height: 200px;
 	background-color: blue;
 }
+
 .prueba2 {
 	width: 200px;
 	height: 200px;
 	background-color: red;
 }
-.partidos_sep {
-	background-color: white;
-}
+
+.partidos_sep {background-color: white;}
+
 .partidos_meses, .partidos_mapa {
 	padding: 0;
 	height: 75vh;
 }
-.landscape {
-	display: flex;
-}
+
+.landscape {display: flex;}
 
 .tabla_landscape {
 	overflow: scroll;
@@ -239,17 +233,13 @@ th, td {border: solid 1px black;}
 	cursor: pointer;
 }
 
-h5 {
-	font-size: calc(1.25vh + 1.25vw);
-}
+h5 {font-size: calc(1.25vh + 1.25vw);}
 
 .card-body .mes thead tr th, .card-body .mes tbody tr td {
 	font-size: calc(1.25vh + 1.25vw);
 }
 
-.cerrar {
-	display: none !important;
-}
+.cerrar {display: none !important;}
 
 #logOut, #chat {display:none;}
 
@@ -279,4 +269,5 @@ h5 {
 .nuevo-comentario {padding-top:0;}
 
 .nuevo-comentario form textarea {width: 70%; color: black;}
+
 .nuevo-comentario form button {width: 20%; color: black;height: 2rem;margin-top: auto;margin-bottom: auto;}
