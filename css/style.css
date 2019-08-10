@@ -246,7 +246,7 @@ h5 {font-size: calc(1.25vh + 1.25vw);}
 #chat {margin: 5vh auto;}
 
 .form-post, .posteo-msj, .posteo-comentario, .nuevo-comentario {
-	width: 70vw;
+	width: 85vw;
 	margin: auto;
 	background-color: rgb(255, 207, 86);
 	padding: 10px;
@@ -260,9 +260,9 @@ h5 {font-size: calc(1.25vh + 1.25vw);}
 
 .posteo-msj {margin-top: 5vh;}
 
-.posteos h3 {color: black;text-decoration: underline;}
+.posteos h3 {color: black;text-decoration: underline;font-size: calc(1.5vh + 1.5vw);}
 
-.posteos h4 {color: black;}
+.posteos h4 {color: black;font-size:calc(1vh + 1vw);}
 
 .posteos p {color: black;background-color: rgba(255,255,255,0.5);padding: 5px 10px;margin-bottom: 0;}
 

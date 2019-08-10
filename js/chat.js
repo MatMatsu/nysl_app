@@ -7,6 +7,7 @@ var chat = document.getElementById("chat");
 var formPost = document.getElementById("formulario-post");
 var newPostTitle = document.getElementById("new-post-title");
 var newPostMessage = document.getElementById("new-post-message");
+var posteos = document.getElementById("posteos");
 var currentUID;
 
 /*
@@ -24,10 +25,38 @@ Traer todos los mensajes
 */
 function getAllPost() {
   firebase.database().ref('post').on("child_added", function(datos) {
+    var div = document.createElement("div");
+    div.setAttribute("class", "posteo");
+    var html = "<div class='posteo'>" +
+                "<div class='posteo-msj'>" + 
+                  "<h3>" + datos.val().titulo + "</h3>" +
+                  "<h4>" + datos.val().nombre + " - " + datos.val().fechaYhora + "</h4>" +
+                  "<p>" + datos.val().mensaje + "</p>" +
+            "</div>" + 
+            "<div class='nuevo-comentario'>" +
+              "<form action='#'' id='comentario-post' class='d-flex justify-content-around'>" +
+                "<textarea name='comment' rows='2' id='new-comment' placeholder='Write your comment...'></textarea>" +
+                "<button type='submit'>COMMENT</button>" +
+              "</form>" +
+            "</div>" +
+            "<div class='posteo-comentario'>" +
+              "<h4>Usuario + Fecha y hora</h4>" +
+              "<p>Comentario</p>" +
+            "</div>" +
+          "</div>";
+
+    div.innerHTML = html;
+
+    posteos.appendChild(div);
+
+    /*
     console.log(datos.val().fechaYhora);
     console.log(datos.val().mensaje);
     console.log(datos.val().nombre);
     console.log(datos.val().titulo);
+    */
+
+
 
   }, function (errorObject) {
     console.log("La Lectura Falla: " + errorObject.code);
