@@ -1,0 +1,282 @@
+/* ------------------------ */
+					/* SMALL */
+/* ------------------------ */
+
+@media only screen and (min-width: 100px)  {
+/* ------------------------ */
+					/* ALL */
+/* ------------------------ */
+	* {font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;color: white;}
+	.loader {position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999;background: url('../img/pageLoader2.gif') 50% 50% no-repeat rgb(217,235,236);opacity: .8;background-size: cover;}
+
+/* ------------------------ */
+					/* HEADER */
+/* ------------------------ */
+header {background-color: #FFCF56;}
+
+header>div {
+	align-self: center;
+}
+
+/* ------------------------ */
+/* ------------------------ */
+/* HEADER > DIV(.INICIARSESION) */
+	.iniciarSesion {padding:0;}
+
+/* ------------------------ */
+/* HEADER > DIV(.LOGO) */
+	.logo {padding: 0;}
+/* HEADER > DIV(.LOGO) > A > IMG(.NYSL_LOGO) */
+	.nysl_logo {width: calc(6vh + 6vw);margin: calc(0.5vh + 0.5vw) auto;text-align: center;}
+
+/* ------------------------ */
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV */
+	.contacto_whatsapp>div {margin: calc(1vh + 1vw);text-align: center;padding: 0;}
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > IMG(.WHATSAPP_LOGO) */
+	.whatsapp_logo {width: 40%;}
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > P */
+	.whatsapp_logo+p {font-size: calc(1vh + 1vw);margin-bottom: 0;color: black;}
+
+/* ------------------------ */
+					/* MAIN */
+/* ------------------------ */
+/* NEXT GAMES */
+/* MAIN > H1 */
+	h1 {text-align: center;margin: calc(1vh + 1vw) auto calc(0.5vh + 0.5vw);font-weight: bold;text-decoration: underline;}
+/* MAIN > H2(.SUBTITLE) */
+	.subtitle {font-size: calc(1.5vh + 1.5vw);text-align: center;text-decoration: underline;margin-bottom: calc(1vh + 1vw);}
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) */
+	.carousel-indicators {margin-bottom: 0;}
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > LI */
+	.carousel-indicators li {color: black;width: auto;height: auto;padding: 0 3px;text-indent: 0;}
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) */
+	.carousel-inner > .carousel-item {-webkit-transition-duration: 2s;-moz-transition-duration: 2s;-o-transition-duration: 2s;transition-duration: 2s;}
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) > SECTION(.PARTIDOS) */
+	.partidos{width: 85vw;margin: auto;background-color: lightgreen;}
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) > SECTION(.PARTIDOS) > DIV > DIV(.PARTIDO) */
+	.partido:first-child {background-image: url("../img/bg_match_dia.jpg");}
+
+	.partido:nth-child(2) {background-image: url("../img/bg_match_tarde.jpg");}
+
+	.partido {margin: 0 auto calc(4vh + 4vw);width: 40vw;padding: calc(1vh + 1vw);background-repeat: no-repeat;background-size: cover;height: 25vh;display: flex;flex-direction: column;}
+
+	.partido h3 {font-size: calc(1.5vh + 1.5vw);}
+
+	.partido p {font-size: calc(1vh + 1vw);}
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) > SECTION(.PARTIDOS) > DIV > DIV(.PARTIDO) > H3/P */
+	.partido h3, .partido p {background-color: rgba(100,100,100,0.7);margin: auto;}
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > A(.CAROUSEL-CONTROL-NEXT/.CAROUSEL-CONTROL-PREV) */
+	.carousel-control-next, .carousel-control-prev {width:10%;}
+
+/* EXTRAS */
+/* MAIN > SECTION(.EXTRAS) */
+	.extras {width: 90vw;margin: calc(0.5vh + 0.5vw) auto;}
+	
+/* GAMES SCHEDULE */
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > DIV > DIV(.AGENDA_PARTIDOS) */
+	.agenda_partidos {border-bottom: 2px solid black;margin-top: calc(1vh + 1vw);}
+	.agenda_partidos:last-child {border-bottom: none;}
+
+/* LOCATION */
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV(.MODAL-WIDTH) */
+	.modal-width {width: 95vw; height: auto;max-width: none;}
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > TABLE(.DIRECCIONES) */
+	.direcciones{display: none;}
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > IFRAME(.MAP_PORTRAIT) */	
+	.map_portrait {width: 85vw; height: 75vh;}
+
+/* MAIN > SECTION(.EVENTOS) */
+	.eventos {margin: calc(1vh + 1vw) auto;padding: calc(1vh + 1vw);border: 2px dashed white;}
+/* MAIN > SECTION(.EVENTOS) > UL > li(.EVENTO) */
+	.evento {margin: calc(1vh + 1vw) calc(1.5vh + 1.5vw);font-size: calc(1.5vh + 1.5vw);}
+/* MAIN > SECTION(.EVENTOS) > UL > li(.EVENTO) > UL > LI */
+	.evento>ul>li {font-size: calc(1vh + 1vw);}
+
+}
+
+/* ------------------------ */
+					/* MEDIUM */
+/* ------------------------ */
+
+@media only screen and (min-width: 768px)  {
+/* ------------------------ */
+					/* HEADER */
+/* ------------------------ */
+/* ------------------------ */
+/* HEADER > DIV(.INICIARSESION) */
+	.iniciarSesion {padding: 0;}
+
+/* ------------------------ */
+/* HEADER > DIV(.LOGO) > A > IMG(.NYSL_LOGO) */
+	.nysl_logo {width: 50%;}
+
+/* ------------------------ */	
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > IMG(.WHATSAPP_LOGO) */
+	.whatsapp_logo {width: 30%;}
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > P */
+	.whatsapp_logo+p {font-size: 2vw;}
+
+/* ------------------------ */
+					/* MAIN */
+/* ------------------------ */
+	.partido {margin-bottom: calc(3vh + 3vw);}
+
+
+/* GAMES SCHEDULES */
+	.agenda_partidos {border-bottom: none;}
+
+/* LOCATION */
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > TABLE(.DIRECCIONES) */
+	.direcciones{width: 40vw;height: 100%;display: inline-block;font-size: calc(1vh + 1vw);}
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > IFRAME(.MAP_PORTRAIT) */
+	.map_portrait {width: 50vw;height: 70vh;}
+
+}
+
+/* ------------------------ */
+					/* LARGE */
+/* ------------------------ */
+
+@media only screen and (min-width: 992px)  {
+/* ------------------------ */
+					/* HEADER */
+/* ------------------------ */
+/* HEADER > NAV > BUTTON */
+	.navbar>button {margin: 0;}
+/* HEADER > NAV > DIV > UL > LI(.NAV-ITEM) */
+	.nav-item {padding: 0;}
+	.nav-item:nth-child(4), .nav-item:nth-child(5) {border-bottom: none;}
+	.nav-item:nth-child(2), .nav-item:nth-child(5) {border-right: 1px solid black;border-left: 1px solid black;}
+/* HEADER > NAV > DIV > UL > LI(.NAV-ITEM) > A(.NAV-LINK) */
+	.nav-link {font-size: 1.5vw;width: min-content;margin: auto;}
+/* HEADER > DIV(.LOGO) > A > IMG(.NYSL_LOGO) */
+	.nysl_logo {margin: calc(0.5vh + 0.5vw) auto;width: 60%;}
+
+	.iniciarSesion {text-align: center;margin:auto;}	
+
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV */
+	.contacto_whatsapp>div {margin: auto calc(0.75vh + 0.75vw);}	
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > IMG(.WHATSAPP_LOGO) */
+	.whatsapp_logo {width: 30%;transition: width 0.3s ease-in-out;}
+	.whatsapp_michael:hover .whatsapp_logo, .whatsapp_grupo:hover .whatsapp_logo {width: 60%;}
+/* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > P */
+	.whatsapp_logo+p {font-size: 1.4vw;}
+	.whatsapp_michael:hover .whatsapp_logo+p, .whatsapp_grupo:hover .whatsapp_logo+p {font-size:1.6vw;}
+
+/* ------------------------ */
+					/* MAIN */
+/* ------------------------ */
+/*MAIN > H1*/
+	h1 {font-size: 4vw;}
+
+/* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) > SECTION(.PARTIDOS) > DIV > DIV(.PARTIDO) */
+	.partido {height: 30vh;}
+
+/* LOCATION */
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV(.MODAL-WIDTH) */
+	.modal-width {width: 80vw; height: 80vh;max-width: none;}
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > TABLE(.DIRECCIONES) */
+	.direcciones{width: 25vw;display: inline-block;}
+/* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > IFRAME */
+	.map_portrait {width: 50vw; height: 75vh;}
+
+}
+
+/* ------------------------ */
+					/* ALL */
+/* ------------------------ */
+
+body {
+	background-color: black;
+}
+
+main {
+	display: none;
+}
+
+th,td,.modal-body>p, h5, h6, .close>span {color:black;}
+
+/* MAIN - ARTICLE - TABLE */
+table {margin-bottom: calc(1vh + 1vw);}
+/* MAIN - ARTICLE - TABLE - THEAD/TBODY */
+thead, tbody {text-align: center;}
+th, td {border: solid 1px black;}
+[rowspan] {text-align: center;line-height: normal;}
+/* MAIN - ARTICLE - TABLE(.MES) */
+.mes {width: 100%;}
+.mes th {width: auto;}
+.mes th:first-child {width: 15%;}
+.prueba1 {
+	width: 200px;
+	height: 200px;
+	background-color: blue;
+}
+.prueba2 {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+}
+.partidos_sep {
+	background-color: white;
+}
+.partidos_meses, .partidos_mapa {
+	padding: 0;
+	height: 75vh;
+}
+.landscape {
+	display: flex;
+}
+
+.tabla_landscape {
+	overflow: scroll;
+	height: 40vh;
+}
+
+.lugar {
+	text-align: center;
+	color: #007bff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+h5 {
+	font-size: calc(1.25vh + 1.25vw);
+}
+
+.card-body .mes thead tr th, .card-body .mes tbody tr td {
+	font-size: calc(1.25vh + 1.25vw);
+}
+
+.cerrar {
+	display: none !important;
+}
+
+#logOut, #chat {display:none;}
+
+#chat {margin: 5vh auto;}
+
+.form-post, .posteo-msj, .posteo-comentario, .nuevo-comentario {
+	width: 70vw;
+	margin: auto;
+	background-color: rgb(255, 207, 86);
+	padding: 10px;
+}
+
+#post form label input, #post form label textarea {color: black;width:100%;}
+
+#post form label {color: black;}
+
+#post form button {color: black; width:20vw;margin: auto;}
+
+.posteo-msj {margin-top: 5vh;}
+
+.posteos h3 {color: black;text-decoration: underline;}
+
+.posteos h4 {color: black;}
+
+.posteos p {color: black;background-color: rgba(255,255,255,0.5);padding: 5px 10px;margin-bottom: 0;}
+
+.nuevo-comentario {padding-top:0;}
+
+.nuevo-comentario form textarea {width: 70%; color: black;}
+.nuevo-comentario form button {width: 20%; color: black;height: 2rem;margin-top: auto;margin-bottom: auto;}

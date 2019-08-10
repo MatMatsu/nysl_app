@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Firebase Database Quickstart">
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Firebase Database Quickstart">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#303F9F">
+
+	<title>NYSL</title>
+
+	<!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+  <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+	<link rel="shortcut icon" sizes="196x195" href="./img/nysl_icon.png">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="">
+	<div class="loader"></div>
+	<!-- <div id="app"> -->
+		<header class="d-flex">
+			<!-- ------------------------ -->
+			<!-- MENU -->
+			<!-- ------------------------ -->
+			<div class="col-5 iniciarSesion d-flex justify-content-center align-self-center">
+				<div>
+					<div id="logIn">
+			      <button id="sign-in-button-google" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign in with Google</button>
+			      <button id="sign-in-button-anonymous" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign in with Anonymous</button>
+					</div>
+					<div id="logOut">
+		      	<button id="sign-out-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign out</button>
+					</div>
+		    </div>
+			</div>
+			<!-- ------------------------ -->
+		  <!-- LOGO NYSL -->
+		  <!-- ------------------------ -->
+			<div class="col-2 text-center logo">
+				<a href="#!"><img src="./img/nysl_logo.png" alt="Logo de NYSL" class="nysl_logo"></a>
+			</div>
+			<!-- ------------------------ -->
+		  <!-- ENLACES A WHATSAPP -->
+		  <!-- ------------------------ -->
+		  <div class="contacto_whatsapp d-flex justify-content-around justify-content-lg-end col-5">
+			  <div class="col-md-4 whatsapp_grupo">
+			  	<a href="https://chat.whatsapp.com/GXtr7QzxT9CKSnJq1b48h4">
+				  	<img src="./img/logo_whatsapp.png" alt="logo de whatsapp" class="whatsapp_logo">
+				  	<p>League Group</p>
+			  	</a>
+			  </div>
+			  <div class="col-md-4 whatsapp_michael">
+			  	<a href="https://wa.me/16306908132">
+				  	<img src="./img/logo_whatsapp.png" alt="logo de whatsapp" class="whatsapp_logo">
+				  	<p>Michael Randall</p>
+			  	</a>
+			  </div>
+			</div>
+		</header>
+		<main id="app">
+			<!-- ------------------------ -->
+			<!-- TITULO -->
+			<!-- ------------------------ -->
+			<div v-show="portrait">
+				<h1>NEXT GAMES</h1>
+				<h2 class="subtitle">*All games take place on Saturday</h2>
+				<!-- ------------------------ -->
+				<!-- PROXIMOS PARTIDOS -->
+				<!-- ------------------------ -->
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li v-for="(partido, key) in match" data-target="#carouselExampleIndicators" v-bind:data-slide-to="key" v-if="key < 5" v-text="partido.dia" v-bind:key="key"></li>
+				  </ol>
+				  <div class="carousel-inner" role="listbox">
+				  	<div v-for="(partido, key) in match" v-if="key < 5" v-bind:key="key" class="carousel-item">
+				      <section class="text-center partidos d-block" data-holder-rendered="true">
+								<h2>{{partido.diaLetras}}</h2>
+								<div class="d-flex justify-content-center">
+									<div v-for="(data, llave) in partido.data" class="partido">
+										<h3>{{data.equipos}}</h3>
+										<p>Time: {{data.hora}}</p>
+										<p>Location:<br>{{data.lugar}}</p>
+									</div>
+								</div>
+							</section>
+				    </div>
+				  </div>
+				  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
+				<!-- ------------------------ -->
+				<!-- CONTENIDOS EXTRAS -->
+				<!-- ------------------------ -->
+				<section class="text-center extras">
+					<div class="d-flex justify-content-around">
+						<!-- ------------------------ -->
+						<!-- SCHEDULE -->
+						<!-- ------------------------ -->
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+						  GAMES SCHEDULE
+						</button>
+						<!-- Modal -->
+						<div class="modal" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-scrollable modal-width" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalCenteredLabel">GAMES SCHEDULE</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">×</span>
+						        </button>
+						      </div>
+						      <div class="modal-body d-flex flex-wrap flex-md-nowrap justify-content-around">
+						        <!-- TABLA -->
+						        <div v-for="(schedule, key) in gameSchedule" class="agenda_partidos col-12 col-md-6">
+							        <h5>{{schedule.mes}}</h5>
+							        <table class="mes">
+				                <thead>
+			                    <tr>
+			                      <th>Day</th>
+			                      <th>Teams</th>
+			                      <th>Location</th>
+			                      <th>Times</th>
+			                    </tr>
+				                </thead>
+				                <tbody>
+			                    <tr v-for="(data, key) in schedule.data">
+			                      <td>{{data.dia}}</td>
+			                      <td>{{data.equipos}}</td>
+			                      <td>{{data.lugar}}</td>
+			                      <td>{{data.hora}}</td>
+			                    </tr>
+				                </tbody>
+					            </table>
+					          </div>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+						<!-- ------------------------ -->
+						<!-- LOCATIONS -->
+						<!-- ------------------------ -->
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCentered">
+						  LOCATIONS
+						</button>
+						<!-- Modal -->
+						<div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-centered modal-width" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalCenteredLabel">GAMES LOCATIONS</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">×</span>
+						        </button>
+						      </div>
+						      <div class="modal-body d-flex justify-content-around">
+						        <!-- LOCATION -->
+						        <table class="direcciones">
+							        <thead>
+							          <tr>
+							            <th colspan="2">Game Locations:</th>
+							          </tr>
+							        </thead>
+							        <tbody>
+							          <tr>
+							            <td v-on:click="mapa_partido($event)" class="lugar">AJ Katzenmaier</td>
+							            <td>24 W. Walton St., Chicago, IL 60610</td>
+							          </tr>
+							          <tr>
+							            <td v-on:click="mapa_partido($event)" class="lugar">Greenbay</td>
+							            <td>1734 N. Orleans St., Chicago, IL 60614</td>
+							          </tr>
+							          <tr>
+							            <td v-on:click="mapa_partido($event)" class="lugar">Howard A Yeager</td>
+							            <td>2245 N. Southport Ave., Chicago, IL 60614</td>
+							          </tr>
+							          <tr>
+							            <td v-on:click="mapa_partido($event)" class="lugar">Marjorie P Hart</td>
+							            <td>2625 N. Orchard St., Chicago, IL 60614</td>
+							          </tr>
+							          <tr>
+							            <td v-on:click="mapa_partido($event)" class="lugar">North</td>
+							            <td>1409 N. Ogden Ave., Chicago, IL 60610</td>
+							          </tr>
+							          <tr>
+							            <td v-on:click="mapa_partido($event)" class="lugar">South</td>
+							            <td>2101 Fremont St., Chicago, IL 60614</td>
+							          </tr>
+							        </tbody>
+							      </table>
+						        <iframe src="https://www.google.com/maps/d/embed?mid=1Zm1RoZefy2mbyjvOjQn2q-dE6OtMWqp8&z=13" width="640" height="480" class="map_portrait"></iframe>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+
+					</div>
+				</section>
+				<!-- ------------------------ -->
+				<!-- PROXIMOS EVENTOS -->
+				<!-- ------------------------ -->
+				<section class="eventos col-11 col-md-9 col-lg-6">
+					<h2>Upcoming Events</h2>
+					<ul class="list-unstyled">
+						<li class="evento">August 4
+							<ul>
+								<li>NYSL Fundraiser</li>
+							</ul>
+						</li>
+						<li class="evento">August 16
+							<ul>
+								<li>Season Kick-off: Meet the Teams</li>
+							</ul>
+						</li>
+						<li class="evento">September 1
+							<ul>
+								<li>First Game of the Season (Check Game Schedule for details)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<!-- <div class="prueba"></div> -->
+			</div>
+			<div v-show="landscape" class="landscape">
+				<div id="accordion" role="tablist" class="col-6 partidos_meses">
+					<div class="card">
+				    <div class="card-header text-center apaisado">
+				      <h5 class="mb-0 lugar" v-on:click="mapa_partido($event)">
+			          ALL GAME LOCATIONS
+				      </h5>
+				    </div>
+				  </div>
+				  <div v-for="(schedule, key) in gameSchedule" class="card">
+				    <div class="card-header" role="tab" id="headingOne">
+				      <h5 class="mb-0">
+				        <a class="collapsed" data-toggle="collapse" v-bind:href="'#collapsed' + key" aria-expanded="false" v-bind:aria-controls="'collapsed' + key">
+				          {{schedule.mes}}
+				        </a>
+				      </h5>
+				    </div>
+
+				    <div v-bind:id="'collapsed' + key" class="tabla_landscape collapse" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="card-body">
+				        <table class="mes">
+					        <thead>
+					          <tr>
+					            <th>Day</th>
+					            <th>Teams</th>
+					            <th>Location</th>
+					            <th>Times</th>
+					          </tr>
+					        </thead>
+					        <tbody>
+					        	<tr v-for="(data, key) in schedule.data" lugar="apaisado">
+		                  <td>{{data.dia}}</td>
+		                  <td>{{data.equipos}}</td>
+		                  <td v-on:click="mapa_partido($event)" class="lugar">{{data.lugar}}</td>
+		                  <td>{{data.hora}}</td>
+		                </tr>
+					        </tbody>
+					      </table>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<div class="partidos_mapa col-6">
+					<iframe src="https://www.google.com/maps/d/embed?mid=1Zm1RoZefy2mbyjvOjQn2q-dE6OtMWqp8&z=13" width="100%" height="100%" class="map_landscape"></iframe>
+				</div>
+			</div>
+			<div id="chat">
+				<div id="post">
+					<form action="#" id="formulario-post" class="d-flex flex-column form-post">
+						<label for="new-post-title">Title: <input type="text" name="titulo" maxlength="50" placeholder="Title..." id="new-post-title"></label>
+						<label for="new-post-message">Message: <textarea name="message" rows="3" id="new-post-message" placeholder="Write your message..."></textarea></label>
+						<button type="submit">POST</button>
+					</form>
+				</div>
+				<section id="posteos" class="d-flex flex-column posteos">
+					<!-- posteos -->
+					<div class="posteo">
+						<div class="posteo-msj">
+							<h3>Titulo</h3>
+							<h4>Usuario + Fecha y hora</h4>
+							<p>Mensaje: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+						<div class="nuevo-comentario">
+							<form action="#" id="comentario-post" class="d-flex justify-content-around">
+								<textarea name="comment" rows="2" id="new-comment" placeholder="Write your comment..."></textarea>
+								<button type="submit">COMMENT</button>
+							</form>
+						</div>
+						<div class="posteo-comentario">
+							<h4>Usuario + Fecha y hora</h4>
+							<p>Comentario</p>
+						</div>
+					</div>
+					<div>
+						<div class="posteo-msj">
+							<h3>Titulo</h3>
+							<h4>Usuario + Fecha y hora</h4>
+							<p>Mensaje: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, aperiam.</p>
+						</div>
+						<div class="nuevo-comentario">
+							<form action="#" id="comentario-post" class="d-flex justify-content-around">
+								<textarea name="comment" rows="2" id="new-comment" placeholder="Write your comment..."></textarea>
+								<button type="submit">COMMENT</button>
+							</form>
+						</div>
+						<div class="posteo-comentario">
+							<h4>Usuario + Fecha y hora</h4>
+							<p>Comentario</p>
+						</div>
+					</div>
+					<div>
+						<div class="posteo-msj">
+							<h3>Titulo</h3>
+							<h4>Usuario + Fecha y hora</h4>
+							<p>Mensaje: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam quas, vitae repellat illo magnam ducimus obcaecati non sit quae assumenda possimus veritatis esse officiis voluptas quidem hic dolorum impedit libero, autem quam porro natus laudantium nobis. Tenetur officiis accusamus unde quo ullam ad ducimus nam neque exercitationem, corrupti maiores aperiam, libero dolor? Mollitia voluptas facere ex nulla amet modi, hic quas placeat repellendus culpa dolore eaque voluptate molestias tempore sapiente inventore, aliquam vero eligendi fugit ea deleniti! Ipsam labore recusandae quas hic quam tenetur praesentium earum quidem dignissimos, quo deserunt libero quae officiis nemo. Fugit magni, minima at vel assumenda accusamus modi facere voluptatibus id officiis ut iusto sunt eligendi nihil atque est porro mollitia tenetur accusantium nulla amet incidunt.</p>
+						</div>
+						<div class="nuevo-comentario">
+							<form action="#" id="comentario-post" class="d-flex justify-content-around">
+								<textarea name="comment" rows="2" id="new-comment" placeholder="Write your comment..."></textarea>
+								<button type="submit">COMMENT</button>
+							</form>
+						</div>
+						<div class="posteo-comentario">
+							<h4>Usuario + Fecha y hora</h4>
+							<p>Comentario</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+	<!-- </div> -->
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script	src="/__/firebase/6.3.1/firebase-app.js"></script>
+	<script src="/__/firebase/6.3.3/firebase-auth.js"></script>
+	<script src="/__/firebase/6.3.3/firebase-database.js"></script>
+	<!-- Initialize Firebase -->
+	<script src="/__/firebase/init.js"></script>
+	<!-- TODO: Add SDKs for Firebase products that you want to use
+	     https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<!-- production version, optimized for size and speed -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<script src="./js/script_vue.js"></script>
+	<script src="./js/script.js"></script>
+	<script src="./js/chat.js"></script>
+</body>
+</html>
