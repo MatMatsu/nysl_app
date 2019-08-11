@@ -8,6 +8,7 @@ var formPost = document.getElementById("formulario-post");
 var newPostTitle = document.getElementById("new-post-title");
 var newPostMessage = document.getElementById("new-post-message");
 var posteos = document.getElementById("posteos");
+var listeningFirebaseRefs = [];
 var currentUID;
 
 /*
@@ -47,10 +48,10 @@ function addComment(element, id, msg, nombre, fecha) {
 Traer todos los mensajes
 */
 function getAllPost() {
-  
+  var post = firebase.database().ref('post');
 
-  firebase.database().ref('post').on("child_added", (datos) => {
-    console.log(datos.val());
+  post.on("child_added", (datos) => {
+    // console.log(datos.val());
     var div = document.createElement("div");
     div.setAttribute("class", "posteo");
     var html =  "<div class='posteo-msj'>" + 
@@ -91,6 +92,9 @@ function getAllPost() {
   }, (errorObject) => {
     console.log("La Lectura Falla: " + errorObject.code);
   });
+
+  // Guardo referencia a firebase db
+  listeningFirebaseRefs.push(post);
 }
 
 /*
@@ -154,16 +158,22 @@ window.addEventListener('load', function() {
 
     posteos.innerHTML = ""; // Elimina todos los posteos antes de volver a cargarlos
 
+    // Detengo referencia a firebase db
+    listeningFirebaseRefs.forEach(function(ref) {
+      ref.off();
+    });
+    listeningFirebaseRefs = [];
+
     if (usuario) {
       // User is signed in.
       // console.log("if");
       currentUID = usuario.uid;
-      writeUserData(usuario.uid, usuario.displayName, usuario.email);
-      
-      getAllPost();
       logIn.style.display = 'none';
       logOut.style.display = 'block';
       chat.style.display = "block";
+      writeUserData(usuario.uid, usuario.displayName, usuario.email);
+      
+      getAllPost();
     } else {
       // No user is signed in.
       // console.log("else");
