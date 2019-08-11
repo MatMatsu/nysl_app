@@ -21,44 +21,74 @@ function addZero(fecha) {
 }
 
 /*
+Obtener fecha
+*/
+function getFecha() {
+  let d = new Date();
+  let fecha = addZero(d.getDate()) + "/" + addZero((d.getMonth()+1)) + "/" + d.getFullYear() + " " + addZero(d.getHours()) + ":" + addZero(d.getMinutes());
+  return fecha;
+}
+
+/*
+Insertar comentarios
+*/
+function addComment(element, id, msg, nombre, fecha) {
+  let comment = document.createElement("div");
+  comment.setAttribute("class", "posteo-comentario");
+  let html = "<h4>" + nombre + " - " + fecha + "</h4>" +
+             "<p>" + msg + "</p>";
+
+  comment.innerHTML = html;
+
+  element.appendChild(comment);
+}
+
+/*
 Traer todos los mensajes
 */
 function getAllPost() {
-  firebase.database().ref('post').on("child_added", function(datos) {
+  
+
+  firebase.database().ref('post').on("child_added", (datos) => {
+    console.log(datos.val());
     var div = document.createElement("div");
     div.setAttribute("class", "posteo");
-    var html = "<div class='posteo'>" +
-                "<div class='posteo-msj'>" + 
+    var html =  "<div class='posteo-msj'>" + 
                   "<h3>" + datos.val().titulo + "</h3>" +
                   "<h4>" + datos.val().nombre + " - " + datos.val().fechaYhora + "</h4>" +
                   "<p>" + datos.val().mensaje + "</p>" +
-            "</div>" + 
-            "<div class='nuevo-comentario'>" +
-              "<form action='#'' id='comentario-post' class='d-flex justify-content-around'>" +
-                "<textarea name='comment' rows='2' id='new-comment' placeholder='Write your comment...'></textarea>" +
-                "<button type='submit'>COMMENT</button>" +
-              "</form>" +
-            "</div>" +
-            "<div class='posteo-comentario'>" +
-              "<h4>Usuario + Fecha y hora</h4>" +
-              "<p>Comentario</p>" +
-            "</div>" +
-          "</div>";
+                "</div>" + 
+                "<div class='nuevo-comentario'>" +
+                  "<form action='#' class='d-flex justify-content-around comentario-post'>" +
+                    "<textarea name='comment' rows='2' class='new-comment' placeholder='Write your comment...'></textarea>" +
+                    "<button type='submit'>POST</button>" +
+                  "</form>" +
+                "</div>";
 
     div.innerHTML = html;
-
     posteos.appendChild(div);
 
-    /*
-    console.log(datos.val().fechaYhora);
-    console.log(datos.val().mensaje);
-    console.log(datos.val().nombre);
-    console.log(datos.val().titulo);
-    */
+    var addCommentForm = div.getElementsByClassName("comentario-post")[0];
+    var commentInput = div.getElementsByClassName("new-comment")[0];
+    var commentsRef = firebase.database().ref("post-comment/" + datos.key);
 
+    commentsRef.on("child_added", (data)=>{
+      addComment(div, data.key, data.val().msg, data.val().nombre, data.val().fecha);
+    })
 
+    addCommentForm.onsubmit = (e)=> {
+      e.preventDefault();
+      commentsRef.push({
+        msg: commentInput.value,
+        nombre: firebase.auth().currentUser.displayName || "Anonymous",
+        fecha: getFecha(),
+        uid: firebase.auth().currentUser.uid
+      });
+      commentInput.value = '';
+      //commentInput.parentElement.MaterialTextfield.boundUpdateClassesHandler();
+    }
 
-  }, function (errorObject) {
+  }, (errorObject) => {
     console.log("La Lectura Falla: " + errorObject.code);
   });
 }
@@ -68,15 +98,13 @@ Crear post
 */
 function createPost(title, text) {
   let userId = firebase.auth().currentUser;
-  let d = new Date();
-  let fecha = addZero(d.getDate()) + "/" + addZero((d.getMonth()+1)) + "/" + d.getFullYear() + " " + addZero(d.getHours()) + ":" + addZero(d.getMinutes());
   // console.log(userId);
   // console.log(fecha);
-  firebase.database().ref('post/').push({
+  firebase.database().ref('post').push({
     titulo: title,
     mensaje: text,
     nombre: userId.displayName || "Anonymous",
-    fechaYhora: fecha,
+    fechaYhora: getFecha(),
     uid: userId.uid
   });
 }
@@ -124,18 +152,21 @@ window.addEventListener('load', function() {
       return;
     }
 
+    posteos.innerHTML = ""; // Elimina todos los posteos antes de volver a cargarlos
+
     if (usuario) {
       // User is signed in.
-      console.log("if");
+      // console.log("if");
       currentUID = usuario.uid;
       writeUserData(usuario.uid, usuario.displayName, usuario.email);
+      
       getAllPost();
       logIn.style.display = 'none';
       logOut.style.display = 'block';
       chat.style.display = "block";
     } else {
       // No user is signed in.
-      console.log("else");
+      // console.log("else");
       currentUID = null;
       logIn.style.display = 'block';
       logOut.style.display = 'none';
