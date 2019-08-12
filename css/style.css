@@ -12,9 +12,27 @@
 /* ------------------------ */
 					/* HEADER */
 /* ------------------------ */
-header {background-color: #FFCF56;}
+header {
+	background-color: #FFCF56;
+	-moz-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+	box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+	height: 88px;
+	z-index: 0;
+}
 
 header>div {align-self: center;}
+
+.mdl-button {
+	font-size: .6em;
+	max-width: 22vw;
+	padding: 0;
+	margin-left: 5vw;
+}
+
+.subtitle {
+	margin: 22px auto;
+}
 
 /* ------------------------ */
 /* ------------------------ */
@@ -23,9 +41,20 @@ header>div {align-self: center;}
 
 /* ------------------------ */
 /* HEADER > DIV(.LOGO) */
-	.logo {padding: 0;}
+	.logo {
+		padding: 0;
+		z-index: 1;
+	}
 /* HEADER > DIV(.LOGO) > A > IMG(.NYSL_LOGO) */
-	.nysl_logo {width: calc(6vh + 6vw);margin: calc(0.5vh + 0.5vw) auto;text-align: center;}
+	.nysl_logo {
+		width: 100%;
+		margin: calc(0.5vh + 0.5vw) auto;
+		text-align: center;
+		border-radius: 50%;
+		-moz-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+		-webkit-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+		box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+	}
 
 /* ------------------------ */
 /* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV */
@@ -33,7 +62,12 @@ header>div {align-self: center;}
 /* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > IMG(.WHATSAPP_LOGO) */
 	.whatsapp_logo {width: 40%;}
 /* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > P */
-	.whatsapp_logo+p {font-size: calc(1vh + 1vw);margin-bottom: 0;color: black;}
+	.whatsapp_logo+p {
+		font-size: .85em;
+		margin: .1em auto 0;
+		color: black;
+		line-height: 1.2em;
+	}
 
 /* ------------------------ */
 					/* MAIN */
@@ -50,19 +84,41 @@ header>div {align-self: center;}
 /* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) */
 	.carousel-inner > .carousel-item {-webkit-transition-duration: 2s;-moz-transition-duration: 2s;-o-transition-duration: 2s;transition-duration: 2s;}
 /* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) > SECTION(.PARTIDOS) */
-	.partidos{width: 85vw;margin: auto;background-color: lightgreen;}
+	.partidos{
+		width: 85vw;
+		margin: auto;
+		background-color: lightgreen;
+		border-radius: 4px;
+		-moz-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+		-webkit-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+		box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+	}
 /* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) > SECTION(.PARTIDOS) > DIV > DIV(.PARTIDO) */
-	.partido:first-child {background-image: url("../img/bg_match_dia.jpg");}
+	.partido:first-child {
+		background-image: url("../img/futbol.jpg");
+	}
 
-	.partido:nth-child(2) {background-image: url("../img/bg_match_tarde.jpg");}
+	.partido:nth-child(2) {
+		background-image: url("../img/football.jpg");
+	}
 
 	.partido {margin: 0 auto calc(4vh + 4vw);width: 40vw;padding: calc(1vh + 1vw);background-repeat: no-repeat;background-size: cover;height: 25vh;display: flex;flex-direction: column;}
 
-	.partido h3 {font-size: calc(1.5vh + 1.5vw);}
+	.partido h3 {
+		color: #FFCF56;
+		font-size: 1.3em;
+		font-weight: bold;
+		text-shadow: 1px 1px 2px #000;
+	}
 
-	.partido p {font-size: calc(1vh + 1vw);}
+	.partido p {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1em;
+		font-weight: bold;
+		text-shadow: 1px 1px 2px #000;
+	}
 /* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > DIV(.CAROUSEL-INNER) > DIV(.CAROUSEL-ITEM) > SECTION(.PARTIDOS) > DIV > DIV(.PARTIDO) > H3/P */
-	.partido h3, .partido p {background-color: rgba(100,100,100,0.7);margin: auto;}
+	.partido h3, .partido p {margin: auto;}
 /* MAIN > DIV > OL(.CAROUSEL-INDICATORS) > A(.CAROUSEL-CONTROL-NEXT/.CAROUSEL-CONTROL-PREV) */
 	.carousel-control-next, .carousel-control-prev {width:10%;}
 
@@ -73,7 +129,7 @@ header>div {align-self: center;}
 	[data-target = "#upcomingEvents"] {margin-left:1%;margin-right: 1%;}
 
 	.btn {padding: 0;}
-	
+
 /* GAMES SCHEDULE */
 /* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > DIV > DIV(.AGENDA_PARTIDOS) */
 	.agenda_partidos {border-bottom: 2px solid black;margin-top: calc(1vh + 1vw);}
@@ -101,7 +157,26 @@ header>div {align-self: center;}
 					/* MEDIUM */
 /* ------------------------ */
 
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 660px)  {
+	.mdl-button {
+		min-width: 25vw;
+		max-width: 33vw;
+		padding: 0 16px;
+		margin-left: 1vw;
+	}
+
+	.mdl-button:first-child {
+		margin-bottom: 1vw;
+	}
+
+	.logo {
+		margin-top: 43px;
+	}
+
+	.subtitle {
+		margin: 47px auto 0;
+	}
+
 /* ------------------------ */
 					/* HEADER */
 /* ------------------------ */
@@ -111,13 +186,15 @@ header>div {align-self: center;}
 
 /* ------------------------ */
 /* HEADER > DIV(.LOGO) > A > IMG(.NYSL_LOGO) */
-	.nysl_logo {width: 50%;}
+	.nysl_logo {
+		width: 100%;
+	}
 
-/* ------------------------ */	
+/* ------------------------ */
 /* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > IMG(.WHATSAPP_LOGO) */
-	.whatsapp_logo {width: 30%;}
+	.whatsapp_logo {width: 20%;}
 /* HEADER > DIV(.CONTACTO_WHATSAPP) > DIV > A > P */
-	.whatsapp_logo+p {font-size: 2vw;}
+	.whatsapp_logo+p {font-size: 1em;}
 
 /* ------------------------ */
 					/* MAIN */
@@ -189,7 +266,48 @@ header>div {align-self: center;}
 					/* ALL */
 /* ------------------------ */
 
-body {background-color: black;}
+body {
+	background: url("../img/fondo.jpg") no-repeat left center;
+	background-size: cover;
+}
+
+h1 {
+	text-decoration: none;
+	text-shadow: 1px 1px 2px #000;
+	margin: 33px auto;
+}
+
+h2 {
+	font-weight: bold;
+	text-shadow: 1px 1px 2px #000;
+	padding: 22px 0;
+}
+
+.subtitle {
+	text-decoration: none !important;
+	text-shadow: 1px 1px 2px #000;
+}
+
+.btn-primary {
+	font-size: .9em;
+	padding: 6px 9px;
+	-moz-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+	-webkit-box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+	box-shadow: 0 3px 5px 0 rgba(15, 15, 15, 0.5);
+}
+
+.btn-primary:hover {
+	background: deepskyblue !important;
+}
+
+.card {
+	background: lightgreen;
+}
+
+.card h5, .card h5 a {
+	color: #fff;
+	text-shadow: 1px 1px 2px #000;
+}
 
 main {display: none;}
 
@@ -218,6 +336,10 @@ th, td {border: solid 1px black;}
 }
 
 .partidos_sep {background-color: white;}
+
+.partidos_meses {
+	margin-right: .5em;
+}
 
 .partidos_meses, .partidos_mapa {
 	padding: 0;
