@@ -68,7 +68,11 @@ header>div {align-self: center;}
 
 /* EXTRAS */
 /* MAIN > SECTION(.EXTRAS) */
-	.extras {width: 90vw;margin: calc(0.5vh + 0.5vw) auto;}
+	.extras {width:85vw;margin: calc(0.5vh + 0.5vw) auto;}
+
+	[data-target = "#upcomingEvents"] {margin-left:1%;margin-right: 1%;}
+
+	.btn {padding: 0;}
 	
 /* GAMES SCHEDULE */
 /* MAIN > SECTION(.EXTRAS) > DIV > DIV > DIV > DIV > DIV > DIV > DIV(.AGENDA_PARTIDOS) */
@@ -84,11 +88,12 @@ header>div {align-self: center;}
 	.map_portrait {width: 85vw; height: 75vh;}
 
 /* MAIN > SECTION(.EVENTOS) */
-	.eventos {margin: calc(1vh + 1vw) auto;padding: calc(1vh + 1vw);border: 2px dashed white;}
+	.eventos {text-align: left;}
 /* MAIN > SECTION(.EVENTOS) > UL > li(.EVENTO) */
-	.evento {margin: calc(1vh + 1vw) calc(1.5vh + 1.5vw);font-size: calc(1.5vh + 1.5vw);}
+	.evento {margin: calc(1vh + 1vw) calc(1.5vh + 1.5vw);font-size: calc(1.5vh + 1.5vw);color: black;}
 /* MAIN > SECTION(.EVENTOS) > UL > li(.EVENTO) > UL > LI */
 	.evento>ul>li {font-size: calc(1vh + 1vw);}
+	.evento ul li {color: black;}
 
 }
 
